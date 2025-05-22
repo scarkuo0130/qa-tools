@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome", // 或者 "msedge" (Microsoft Edge), "firefox"
+            "request": "launch",
+            "name": "Launch Chrome against localhost (HTTPS)",
+            "url": "https://localhost:8080/index.html", // 確保端口和文件名與您的設定一致
+            "webRoot": "${workspaceFolder}", // 專案的根目錄
+            "preLaunchTask": "Start HTTPS Server", // 在啟動偵錯器前執行此任務
+            "postDebugTask": "Terminate All Tasks", // 結束偵錯後終止所有任務 (可選)
+            "userDataDir": true,
+            "sourceMaps": true,
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "runtimeArgs": [
+                "--ignore-certificate-errors", // 因為是 mkcert 產生的本地 CA，有些瀏覽器配置可能仍需此參數
+                "--incognito" // 新增此行以無痕模式啟動 Chrome
+            ]
+        }
+        // 您可以加入其他瀏覽器的配置，例如 Firefox
+        // {
+        //     "type": "firefox",
+        //     "request": "launch",
+        //     "name": "Launch Firefox against localhost (HTTPS)",
+        //     "url": "https://localhost:8080/index.html",
+        //     "webRoot": "${workspaceFolder}",
+        //     "preLaunchTask": "Start HTTPS Server",
+        //     "reAttach": true
+        // }
+    ]
+} 

@@ -1,0 +1,36 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start HTTPS Server",
+            "type": "shell",
+            // 如果您是全局安裝的 http-server，請使用下一行
+            "command": "http-server",
+            // 如果您想使用 npx (無需全局安裝)，請註釋掉上一行並取消註釋下一行
+            // "command": "npx http-server", 
+            "args": [
+                ".", // 表示在當前目錄 (專案根目錄) 啟動伺服器
+                "-S", // 啟用 SSL/HTTPS
+                "-C", "./localhost+2.pem", // 指定憑證檔案
+                "-K", "./localhost+2-key.pem", // 指定金鑰檔案
+                "-p", "8080", // 指定端口，您可以更改為其他端口
+                "--cors" // 啟用 CORS，以防跨域問題
+            ],
+            "isBackground": true, // 讓任務在背景執行
+            "problemMatcher": [
+                {
+                    "owner": "custom",
+                    "pattern": {
+                        "regexp": "^(.*)$"
+                    },
+                    "background": {
+                        "activeOnStart": true,
+                        "beginsPattern": "Starting up http-server",
+                        "endsPattern": "Hit CTRL-C to stop the server"
+                    }
+                }
+            ],
+            "detail": "啟動 http-server 並提供 SSL 憑證。"
+        }
+    ]
+} 
