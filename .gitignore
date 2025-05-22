@@ -1,0 +1,77 @@
+# Node.js
+node_modules/
+
+# TypeScript compiled output
+js_compiled/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Operating System Generated Files ---
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Icon?
+.Spotlight-V100
+.Trashes
+#ทิ้ง垃圾桶파일
+# Temporary files created by macOS airdrop, removal on transfer completion would be nice but not always the case
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- IDE / Editor Specific Files (optional, uncomment if needed) ---
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# JetBrains IDEs: .idea/
+# Eclipse: .project, .classpath, .settings/
+# NetBeans: nbproject/
+# Sublime Text: *.sublime-workspace, *.sublime-project
+# Visual Studio: *.suo, *.user, *.vcxproj.filters, *.vcxproj.user, *.sln.docstates
+# Vim: *~
+# Emacs: *#
+
+# --- Environment Variables ---
+.env
+.env.*
+!.env.example
+
+# --- Build output ---
+build/
+dist/
+
+# --- Miscellaneous ---
+.cache
+*.bak
+*.swp
+
+# Operating system generated files
+.DS_Store?
+._*
+
+# IDE / Editor specific files (optional, uncomment if needed)
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/tasks.json
+# !.vscode/launch.json
+# !.vscode/extensions.json
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local 

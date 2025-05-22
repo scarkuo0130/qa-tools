@@ -2,21 +2,35 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "TypeScript Compile",
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "編譯 TypeScript 專案。"
+        },
+        {
             "label": "Start HTTPS Server",
             "type": "shell",
-            // 如果您是全局安裝的 http-server，請使用下一行
-            "command": "http-server",
-            // 如果您想使用 npx (無需全局安裝)，請註釋掉上一行並取消註釋下一行
-            // "command": "npx http-server", 
+            "command": "npx",
             "args": [
-                ".", // 表示在當前目錄 (專案根目錄) 啟動伺服器
-                "-S", // 啟用 SSL/HTTPS
-                "-C", "./localhost+2.pem", // 指定憑證檔案
-                "-K", "./localhost+2-key.pem", // 指定金鑰檔案
-                "-p", "8080", // 指定端口，您可以更改為其他端口
-                "--cors" // 啟用 CORS，以防跨域問題
+                "http-server",
+                ".",
+                "-S",
+                "-C", "./localhost+2.pem",
+                "-K", "./localhost+2-key.pem",
+                "-p", "8080",
+                "--cors"
             ],
-            "isBackground": true, // 讓任務在背景執行
+            "isBackground": true,
+            "dependsOn": [
+                "TypeScript Compile"
+            ],
             "problemMatcher": [
                 {
                     "owner": "custom",
